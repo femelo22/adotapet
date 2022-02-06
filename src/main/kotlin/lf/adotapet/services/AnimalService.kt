@@ -12,4 +12,8 @@ class AnimalService(
     fun cadastrar(animal: AnimalModel){
         animalRepository.save(animal)
     }
+
+    fun listarTodos(): List<AnimalModel>{
+        return animalRepository.findAll()
+    }
 }

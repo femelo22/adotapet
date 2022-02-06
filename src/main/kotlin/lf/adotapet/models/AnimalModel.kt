@@ -1,6 +1,7 @@
 package lf.adotapet.models
 
 import lf.adotapet.enums.StatusPet
+import lf.adotapet.enums.TipoPelagem
 import javax.persistence.*
 
 @Entity(name = "TB_ANIMAL")
@@ -8,32 +9,43 @@ data class AnimalModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val id: Int? = null,
+    val id: Int? = null,
 
     @Column
-    private val nome: String,
+    val nome: String,
 
     @Column
-    private val raca: String,
+    val idade: String,
 
     @Column
-    private val sexo: String,
+    val vacina: String,
 
     @Column
-    private val castrado: Boolean,
+    val raca: String,
 
     @Column
-    private val pelagem: String,
+    val sexo: String,
 
     @Column
-    private val cor: String,
+    val castrado: Boolean,
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    val pelagem: TipoPelagem,
+
+    @Column
+    val cor: String,
+
+    @ManyToOne
+    @JoinColumn(name = "adotante_id")
+    val adotante: AdotanteModel? = null
 
 ){
     @Column
     @Enumerated(EnumType.STRING)
-    var status: StatusPet? = null
+    var status: StatusPet? = StatusPet.DISPONIVEL
 
-    constructor(id: Int?, nome: String, raca: String, sexo: String, castrado: Boolean, pelagem: String, cor: String, statusPet: StatusPet): this(id, nome, raca, sexo, castrado, pelagem, cor){
+    constructor(id: Int?, nome: String, idade: String, vacina: String, raca: String, sexo: String, castrado: Boolean, pelagem: TipoPelagem, cor: String, adotante: AdotanteModel, statusPet: StatusPet): this(id, nome, idade, vacina, raca, sexo, castrado, pelagem, cor, adotante){
         this.status = status
     }
 }

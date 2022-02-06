@@ -1,8 +1,16 @@
 package lf.adotapet.controllers.requests
 
+import lf.adotapet.enums.TipoPelagem
+import lf.adotapet.models.AdotanteModel
+import javax.persistence.Column
+
 data class AnimalPostRequest (
 
         val nome: String,
+
+        val idade: String,
+
+        val vacina: String,
 
         val raca: String,
 
@@ -10,8 +18,10 @@ data class AnimalPostRequest (
 
         val castrado: Boolean,
 
-        val pelagem: String,
+        val pelagem: TipoPelagem,
 
         val cor: String,
+
+        val adotante: AdotanteModel
 
 )

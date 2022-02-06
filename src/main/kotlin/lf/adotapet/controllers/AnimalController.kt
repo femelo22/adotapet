@@ -1,6 +1,9 @@
 package lf.adotapet.controllers
 
 import lf.adotapet.controllers.requests.AnimalPostRequest
+import lf.adotapet.controllers.responses.AnimalResponse
+import lf.adotapet.extension.toAnimalModel
+import lf.adotapet.extension.toResponse
 import lf.adotapet.services.AnimalService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -14,9 +17,12 @@ class AnimalController(
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun cadastrar(@RequestBody dto: AnimalPostRequest) {
+        animalService.cadastrar(dto.toAnimalModel())
+    }
 
-        animalService.cadastrar(dto)
-
+    @GetMapping
+    fun listarTodos(): List<AnimalResponse> {
+        return animalService.listarTodos().map { it.toResponse() }
     }
 
 
