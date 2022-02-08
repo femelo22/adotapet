@@ -48,4 +48,5 @@ data class AnimalModel (
     constructor(id: Int?, nome: String, idade: String, vacina: String, raca: String, sexo: String, castrado: Boolean, pelagem: TipoPelagem, cor: String, adotante: AdotanteModel, statusPet: StatusPet): this(id, nome, idade, vacina, raca, sexo, castrado, pelagem, cor, adotante){
         this.status = status
     }
+    
 }
