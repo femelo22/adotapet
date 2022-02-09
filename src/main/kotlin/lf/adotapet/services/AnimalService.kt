@@ -14,6 +14,9 @@ class AnimalService(
     }
 
     fun listarTodos(): List<AnimalModel>{
+
+        val m: List<AnimalModel> = animalRepository.findAll();
+
         return animalRepository.findAll()
     }
 }

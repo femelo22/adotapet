@@ -38,15 +38,13 @@ data class AnimalModel (
 
     @ManyToOne
     @JoinColumn(name = "adotante_id")
-    val adotante: AdotanteModel? = null
+    val adotante: AdotanteModel?
 
 ){
     @Column
     @Enumerated(EnumType.STRING)
     var status: StatusPet? = StatusPet.DISPONIVEL
 
-    constructor(id: Int?, nome: String, idade: String, vacina: String, raca: String, sexo: String, castrado: Boolean, pelagem: TipoPelagem, cor: String, adotante: AdotanteModel, statusPet: StatusPet): this(id, nome, idade, vacina, raca, sexo, castrado, pelagem, cor, adotante){
-        this.status = status
-    }
+
 
 }

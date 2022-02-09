@@ -22,6 +22,7 @@ fun AnimalPostRequest.toAnimalModel(adotante: AdotanteModel): AnimalModel {
 
 fun AnimalModel.toResponse(): AnimalResponse {
     return AnimalResponse(
+        adotante = this.adotante,
         nome = this.nome,
         idade = this.idade,
         vacina = this.vacina,

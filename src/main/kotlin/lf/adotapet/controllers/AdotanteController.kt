@@ -19,4 +19,5 @@ class AdotanteController(
         adotanteService.create(adotantePostRequest.toAdotanteModel())
     }
 
+
 }

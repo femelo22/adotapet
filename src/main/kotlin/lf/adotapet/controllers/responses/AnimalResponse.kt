@@ -1,8 +1,11 @@
 package lf.adotapet.controllers.responses
 
 import lf.adotapet.enums.TipoPelagem
+import lf.adotapet.models.AdotanteModel
 
 data class AnimalResponse(
+
+    val adotante: AdotanteModel?,
 
     val nome: String,
 
