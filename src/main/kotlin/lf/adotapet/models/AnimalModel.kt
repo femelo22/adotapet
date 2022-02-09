@@ -38,7 +38,7 @@ data class AnimalModel (
 
     @ManyToOne
     @JoinColumn(name = "adotante_id")
-    val adotanteId: AdotanteModel? = null
+    val adotante: AdotanteModel? = null
 
 ){
     @Column

@@ -6,7 +6,7 @@ import lf.adotapet.controllers.responses.AnimalResponse
 import lf.adotapet.models.AdotanteModel
 import lf.adotapet.models.AnimalModel
 
-fun AnimalPostRequest.toAnimalModel(): AnimalModel {
+fun AnimalPostRequest.toAnimalModel(adotante: AdotanteModel): AnimalModel {
     return AnimalModel(
             nome = this.nome,
             idade = this.idade,
@@ -16,7 +16,7 @@ fun AnimalPostRequest.toAnimalModel(): AnimalModel {
             castrado = this.castrado,
             pelagem = this.pelagem,
             cor = this.cor,
-            adotante = this.adotante
+            adotante = adotante
     )
 }
 

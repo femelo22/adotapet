@@ -1,5 +1,6 @@
 package lf.adotapet.controllers.requests
 
+import com.fasterxml.jackson.annotation.JsonAlias
 import lf.adotapet.enums.TipoPelagem
 import lf.adotapet.models.AdotanteModel
 import javax.persistence.Column
@@ -22,6 +23,7 @@ data class AnimalPostRequest (
 
         val cor: String,
 
-        val adotanteId: AdotanteModel
+        @JsonAlias("adotante_id")
+        val adotanteId: Int
 
 )
