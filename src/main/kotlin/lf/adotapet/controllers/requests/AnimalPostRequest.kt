@@ -22,6 +22,6 @@ data class AnimalPostRequest (
 
         val cor: String,
 
-        val adotante: AdotanteModel
+        val adotanteId: AdotanteModel
 
 )

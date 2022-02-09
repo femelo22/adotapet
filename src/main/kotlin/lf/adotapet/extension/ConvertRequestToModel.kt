@@ -1,7 +1,9 @@
 package lf.adotapet.extension
 
+import lf.adotapet.controllers.requests.AdotantePostRequest
 import lf.adotapet.controllers.requests.AnimalPostRequest
 import lf.adotapet.controllers.responses.AnimalResponse
+import lf.adotapet.models.AdotanteModel
 import lf.adotapet.models.AnimalModel
 
 fun AnimalPostRequest.toAnimalModel(): AnimalModel {
@@ -28,5 +30,14 @@ fun AnimalModel.toResponse(): AnimalResponse {
         castrado = this.castrado,
         pelagem = this.pelagem,
         cor = this.cor
+    )
+}
+
+fun AdotantePostRequest.toAdotanteModel(): AdotanteModel {
+    return AdotanteModel(
+            nome = this.nome,
+            cpf = this.cpf,
+            telefone = this.telefone,
+            email = this.email
     )
 }
