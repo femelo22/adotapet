@@ -16,4 +16,21 @@ class AdotanteService(
     fun getById(adotanteId: Int): AdotanteModel{
         return adotanteRepository.findById(adotanteId).orElseThrow()
     }
+
+    fun getAll(): List<AdotanteModel> {
+        return adotanteRepository.findAll()
+    }
+
+    fun update(id: Int, adotanteModel: AdotanteModel){
+        val adotante = this.getById(id)
+        if(!adotanteRepository.existsById(id)){
+            throw Exception()
+        }
+        adotanteRepository.save(adotante)
+    }
+
+    fun delete(id: Int){
+        val adotante = adotanteRepository.findById(id).orElseThrow()
+        adotanteRepository.delete(adotante)
+    }
 }
