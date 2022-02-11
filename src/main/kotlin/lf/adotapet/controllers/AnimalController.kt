@@ -4,6 +4,7 @@ import lf.adotapet.controllers.requests.AnimalPostRequest
 import lf.adotapet.controllers.responses.AnimalResponse
 import lf.adotapet.extension.toAnimalModel
 import lf.adotapet.extension.toResponse
+import lf.adotapet.models.AnimalModel
 import lf.adotapet.services.AdotanteService
 import lf.adotapet.services.AnimalService
 import org.springframework.http.HttpStatus
@@ -25,9 +26,7 @@ class AnimalController(
 
     @GetMapping
     fun listarTodos(): List<AnimalResponse> {
-        return animalService.listarTodos().map { it.toResponse() }
+        return animalService.getAll().map { it.toResponse() }
     }
-
-
 
 }

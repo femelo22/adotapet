@@ -13,10 +13,21 @@ class AnimalService(
         animalRepository.save(animal)
     }
 
-    fun listarTodos(): List<AnimalModel>{
-
-        val m: List<AnimalModel> = animalRepository.findAll();
-
+    fun getAll(): List<AnimalModel>{
         return animalRepository.findAll()
+    }
+
+    fun getById(id: Int): AnimalModel {
+        return animalRepository.findById(id).orElseThrow()
+    }
+
+    fun update(id: Int, animalModel: AnimalModel){
+        val animal = this.getById(id)
+        animalRepository.save(animal)
+    }
+
+    fun delete(id:Int) {
+        val animal = this.getById(id)
+        animalRepository.delete(animal)
     }
 }
